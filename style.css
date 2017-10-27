@@ -1,0 +1,14 @@
+.black{
+  background-color: black;
+}
+.blue{
+  background-color: blue;
+}
+#stage > div{
+  height: 20px;
+  width: 20px;
+    float: left;
+}
+#stage{
+        width: 200px;
+}
