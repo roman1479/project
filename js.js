@@ -15,7 +15,20 @@ var i;
 //  square.setAttribute('class','black');
 //  stage.appendChild(square);
 //}
-
+var matrix = [
+ [],
+ [0,1,1],
+];
+function lab(){
+    for(i=0;i<10;i++){
+        for(j=0;j<10;j++){
+            debugger;
+            if(matrix[i] AND matrix[i][j]){
+                mass[i][j] = 2;
+            }
+        }
+    }
+}
 
 
 var mass = [];
@@ -28,6 +41,7 @@ function clearMass(){
 	}
 }
 clearMass();
+lab();
 
 function otrisovka(){
 stage.innerHTML = "";
