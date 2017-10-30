@@ -4,11 +4,18 @@
 .blue{
   background-color: blue;
 }
+.red{
+	background-color: red;
+}
+.green{
+	background-color: green;
+
+}
 #stage > div{
   height: 20px;
   width: 20px;
     float: left;
 }
 #stage{
-        width: 200px;
+        width: 400px;
 }
