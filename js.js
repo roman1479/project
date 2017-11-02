@@ -2,21 +2,7 @@ var stage = document.getElementById('stage');
 var square;
 var i;
 var points = 0; 
-
-//for(i=0; i<10; i++){
-//	square = document.createElement('div');
-//  square.setAttribute('class','blue'); 
-//  stage.appendChild(square);
-//}
-//var brEl = document.createElement('br');
-//stage.appendChild(brEl);
-//
-//for(i=0; i<10; i++){
-//	square = document.createElement('div');
-//  square.setAttribute('class','black');
-//  stage.appendChild(square);
-//}
-
+  
 
 var apples = [];
 for(i=0;i<20;i++){
@@ -25,6 +11,7 @@ for(i=0;i<20;i++){
         apples[i][j] = 0;
     }
 }
+//рисование яблочка в рандомном месте
 function createApple(){
     var randx = Math.floor(Math.random()*20);
     var randy = Math.floor(Math.random()*20);
@@ -36,6 +23,7 @@ function createApple(){
         createApple();
     }
 }
+//наложение массива apples на mass
 function placeApples(){
     for(i=0;i<20;i++){
         for(j=0;j<20;j++){
@@ -45,15 +33,32 @@ function placeApples(){
         }
     }
 }
-
+//сама отрисовка лабиринта
 var matrix = [
- [],
- [0,1,1],
- [],
- [1,0,1,1,1,1,1,1,1,1],
- [],
+ [0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [1,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,0,0,1,0,1,1,1,0,0,0,0,0,0,0,0,0,0],
+ [0,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+ [0,1,0,1,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+ [0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 
 ];
+//присвоение функции лаб значения 2, т.е. лабиринту
 function lab(){
     for(i=0;i<20;i++){
         for(j=0;j<20;j++){
@@ -63,6 +68,7 @@ function lab(){
         }
     }
 }
+//очищаем полотно обнулением массива
 var mass = [];
 function clearMass(){
 	for(i=0;i<20;i++){
@@ -72,39 +78,39 @@ function clearMass(){
 	    }
 	}
 }
-clearMass();
-lab();
+clearMass();//сначала очищаем
+lab();//потом лабиринт
 createApple();
 placeApples();
 showPoints();
-
+//отрисовка самого поля 20*20
 function otrisovka(){
 stage.innerHTML = "";
     for(i=0;i<20;i++){
         for(j=0;j<20;j++){
-            square = document.createElement('div');
-            if(mass[i][j] === 0){
+            square = document.createElement('div');//создаем элемент с указанием див и придаем класс square
+            if(mass[i][j] === 0){ // все нулевые значения окрашиваются в голубой
                  square.setAttribute('class','blue');
             }    
-            else if(mass[i][j] === 1){
+            else if(mass[i][j] === 1){// все нулевые значения окрашиваются в голубой сам игрок
                  square.setAttribute('class','black');
             }
-            else if(mass[i][j] === 2){
+            else if(mass[i][j] === 2){// все 2 значения окрашиваются в красный это лабиринт
                 square.setAttribute('class','red');
             }
-            else if(mass[i][j] === 3){
+            else if(mass[i][j] === 3){// все 3 значения окрашиваются в зеленый это двигающися в рандомном месте
                 square.setAttribute('class','green');
             }
-            stage.appendChild(square);
+            stage.appendChild(square);//добавить эемент послденим
         }
-        brEl = document.createElement('br');
+        brEl = document.createElement('br');//добавление отступов
         stage.appendChild(square);
     }
 }
-otrisovka();
-window.onkeydown= function (e){
-	if(e.keyCode === 38){
-		blackSquare.moveUp();
+otrisovka();//нарисовали поле
+window.onkeydown= function (e){//событие клавиатуры
+	if(e.keyCode === 38){//если нажата клаиша вверх
+		blackSquare.moveUp();//
 	}
 	else if(e.keyCode === 37){
 		blackSquare.moveLeft();
@@ -118,12 +124,12 @@ window.onkeydown= function (e){
 	clearMass();
     lab();
     placeApples();
-    mass[blackSquare.y][blackSquare.x] = blackSquare.colorId;
+    mass[blackSquare.y][blackSquare.x] = blackSquare.colorId;//
     otrisovka();
     console.log(e);   
 }
 
-function showPoints(){
+function showPoints(){//показывающая баллы
     var pointsDiv = document.getElementById('points');
     pointsDiv.innerHTML = points;
 }
@@ -134,12 +140,12 @@ var Square = function(colorId) {
     this.x = 0;
  	this.y = 0;
     this.glasses = function(y, x){
-        apples[y][x] = 0;
-        points++;
-        showPoints();
-        createApple();
+        apples[y][x] = 0;//обнулить предыдущие яблоко
+        points++;//добавить очки
+        showPoints();//отображение очков
+        createApple();//создать новое яблоко
     }
-    this.moveRight = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  ПРАВО
+    this.moveRight = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  ПРАВО и что бы наш игрок не заходил в лабиримнт
         if(mass[me.y][me.x+1]){
             destId = mass[me.y][me.x+1];
             if(destId === 3){
@@ -155,7 +161,7 @@ var Square = function(colorId) {
     		me.x++;
     	}
     }
-    this.moveLeft = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  ПРАВО
+    this.moveLeft = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  лево
         if(mass[me.y][me.x-1]){
             destId = mass[me.y][me.x-1];
             if(destId === 3){
@@ -184,7 +190,7 @@ var Square = function(colorId) {
     		me.y--;
     	}
     }
-    this.moveDown = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  ПРАВО
+    this.moveDown = function () { //ФУНКЦИЯ ДВИЖЕНИЯ  вниз
         if(mass[me.y+1][me.x]){
             destId = mass[me.y+1][me.x];
             if(destId === 3){
@@ -200,4 +206,4 @@ var Square = function(colorId) {
     }
 };
 var blackSquare = new Square(1);
-    
+//
