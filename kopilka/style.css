@@ -1,0 +1,14 @@
+#stage{
+	background-color: #874384;
+	height: 500px;
+	width: 500px;
+	position: relative;
+	overflow: hidden;
+}
+.coin{
+height: 50px;
+width: 50px;
+background-color: #f5eb20;
+border-radius: 50%;
+position: absolute;
+}
