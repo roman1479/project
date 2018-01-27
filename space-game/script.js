@@ -1,3 +1,8 @@
+// game
+	// start
+	// tick
+
+
 // stage
 	// width
 	// height
@@ -11,11 +16,14 @@
 	// bgImg
 	// hp
 	// direction
+	// posX
+	// posY
 
 	// functions
 	// shoot
 	// die
 	// moveLeft, moveRight, moveTop, moveBottom
+	// damage
 
 
 	// this.render = function() {
@@ -27,10 +35,33 @@
 
 
 // meteor
+	// properties
+	// hp		
+	// bgImg 	
+	// width	
+	// height	
+	// posX
+	// posY
+
+
+	// function
+	// move
+	// damage
+	// burst
+	// render
 
 
 // money
+	// properties	
+	// bgImg 	
+	// width	
+	// height	
+	// posX
+	// posY
 
+	// function
+	// take
+	// render
 
 
 // var tick = function() {
