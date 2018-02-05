@@ -1,0 +1,19 @@
+#stage {
+	background-color: #eee;
+	width: 1000px;
+	display: table;
+}
+
+#stage > div {
+	border: 1px solid #aaa;
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+}
+
+.pig {
+	background-color: pink;
+}
+.coin {
+	background-color: gold;
+}
